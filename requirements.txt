@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-openai
+langchain-groq
+langchain-community
+httpx
+python-dotenv
+sqlalchemy
+aiosqlite
+pydantic
+python-jose[cryptography]
+passlib
+requests
