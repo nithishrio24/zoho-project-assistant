@@ -2,7 +2,7 @@
 
 A powerful AI-driven chatbot that enables seamless project and task management through conversational interaction with Zoho Projects. This intelligent assistant helps teams create, update, and track tasks directly through natural language conversations.
 
-## 🎯 What It Does
+## What It Does
 
 The Zoho Project Assignment Chatbot bridges the gap between your team and Zoho Projects by providing:
 
@@ -15,26 +15,26 @@ The Zoho Project Assignment Chatbot bridges the gap between your team and Zoho P
 
 Simply chat with the bot: _"Create a task called 'Website Redesign' and assign it to John"_ and it handles the rest!
 
-## ✨ Features
+##  Features
 
-- ✅ **AI-Powered Conversations** - Uses Groq's LLM for intelligent request understanding
-- ✅ **Zoho Projects Integration** - Full API integration for all project operations
-- ✅ **Secure OAuth 2.0** - OAuth-based authentication with JWT token management
-- ✅ **Task Operations**
+-  **AI-Powered Conversations** - Uses Groq's LLM for intelligent request understanding
+-  **Zoho Projects Integration** - Full API integration for all project operations
+-  **Secure OAuth 2.0** - OAuth-based authentication with JWT token management
+-  **Task Operations**
   - Create tasks with auto-assignment and due dates
   - Update existing tasks
   - Delete tasks with confirmation
   - List tasks by project
-- ✅ **Project Management**
+-  **Project Management**
   - View all portals and projects
   - Get project member lists
   - Track task utilization per team member
   - Access task details
-- ✅ **Session Memory** - Maintains context across conversations
-- ✅ **Professional UI** - Black and yellow themed responsive chat interface
-- ✅ **Error Handling** - Graceful error recovery with user-friendly messages
+-  **Session Memory** - Maintains context across conversations
+-  **Professional UI** - Black and yellow themed responsive chat interface
+-  **Error Handling** - Graceful error recovery with user-friendly messages
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 - **Python 3.9+** - Core application language
@@ -58,7 +58,7 @@ Simply chat with the bot: _"Create a task called 'Website Redesign' and assign i
 - **Zoho Accounts API** - OAuth 2.0 authentication
 - **Groq API** - LLM inference
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before you begin, ensure you have:
 
@@ -68,7 +68,7 @@ Before you begin, ensure you have:
 - A Groq API key (free tier available at [console.groq.com](https://console.groq.com))
 - Zoho OAuth credentials (from Zoho Developer Console)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone & Setup
 
@@ -125,7 +125,7 @@ npm run dev
 
 Visit `http://localhost:5173` in your browser and start chatting!
 
-## ⚙️ Environment Configuration
+##  Environment Configuration
 
 ### Required Variables
 
@@ -162,8 +162,7 @@ For complete configuration instructions including:
 
 → See [ENV_SETUP_GUIDE.md](./ENV_SETUP_GUIDE.md)
 
-## 📁 Project Structure
-
+##  Project Structure
 ```
 skysecure-project/
 ├── zoho-project-chatbot/          # Backend application
@@ -189,14 +188,14 @@ skysecure-project/
 │   ├── package.json
 │   └── vite.config.js
 │
-├── .env                          # ⚠️ NOT COMMITTED (add your credentials)
-├── .env.example                  # ✅ COMMITTED (reference)
+├── .env                          #  NOT COMMITTED (add your credentials)
+├── .env.example                  #  COMMITTED (reference)
 ├── .gitignore                    # Prevents .env from being committed
 ├── ENV_SETUP_GUIDE.md            # Detailed configuration guide
 └── README.md                     # This file
 ```
 
-## 🔄 How It Works
+##  How It Works
 
 ### 1. User Authentication
 - User clicks "Login with Zoho"
@@ -239,18 +238,18 @@ User: "Who has the most tasks?"
 Bot: "Task utilisation report: John (5), Sarah (3)..."
 ```
 
-## 🔐 Security
+##  Security
 
-- ✅ **Environment Variables** - All credentials in `.env` (never committed)
-- ✅ **OAuth 2.0** - Secure Zoho authentication flow
-- ✅ **JWT Tokens** - 30-minute expiration for sessions
-- ✅ **Secret Masking** - Logs show masked credentials
-- ✅ **CORS Protection** - Restricted to whitelisted origins
-- ✅ **Database Encryption Ready** - Structure supports encrypted token storage
+-  **Environment Variables** - All credentials in `.env` (never committed)
+-  **OAuth 2.0** - Secure Zoho authentication flow
+-  **JWT Tokens** - 30-minute expiration for sessions
+-  **Secret Masking** - Logs show masked credentials
+-  **CORS Protection** - Restricted to whitelisted origins
+-  **Database Encryption Ready** - Structure supports encrypted token storage
 
 See [ENV_SETUP_GUIDE.md](./ENV_SETUP_GUIDE.md) for security best practices.
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing with Test Portal API
 
@@ -269,7 +268,7 @@ GET  /auth/callback        # OAuth callback handler
 POST /chat                 # Chat endpoint (requires JWT)
 ```
 
-## 📦 Deployment
+##  Deployment
 
 ### Docker Support
 ```bash
@@ -287,7 +286,7 @@ docker run -p 8000:8000 -p 5173:5173 --env-file .env zoho-chatbot
 
 Never commit `.env` files to version control.
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "ZOHO_CLIENT_ID is not configured"
 - Check `.env` file exists in root directory
@@ -309,13 +308,13 @@ Never commit `.env` files to version control.
 - Check CORS is enabled (should be by default)
 - Check frontend `API` constant matches backend URL
 
-## 📚 Documentation
+##  Documentation
 
 - [ENV_SETUP_GUIDE.md](./ENV_SETUP_GUIDE.md) - Detailed environment configuration
 - [ARCHITECTURE.md](./zoho-project-chatbot/ARCHITECTURE.md) - System design & flow
 - [QUICK_START.md](./zoho-project-chatbot/QUICK_START.md) - Backend quick start
 
-## 🤝 Contributing
+##  Contributing
 
 1. Create feature branch: `git checkout -b feature/amazing-feature`
 2. Commit changes: `git commit -m 'Add amazing feature'`
@@ -324,11 +323,11 @@ Never commit `.env` files to version control.
 
 **Important:** Never commit `.env` files or API keys.
 
-## 📄 License
+##  License
 
 This project is proprietary. All rights reserved.
 
-## 🆘 Support
+##  Support
 
 For issues, questions, or suggestions:
 1. Check the troubleshooting section above
@@ -336,7 +335,7 @@ For issues, questions, or suggestions:
 3. Check backend logs: `uvicorn backend.main:app --reload` shows detailed output
 4. Verify .env configuration
 
-## 🎉 Quick Reference
+##  Quick Reference
 
 | Task | Command |
 |------|---------|
@@ -351,4 +350,4 @@ For issues, questions, or suggestions:
 
 **Version:** 1.0.0  
 **Last Updated:** June 2026  
-**Status:** ✅ Production Ready
+**Status:**  Production Ready
