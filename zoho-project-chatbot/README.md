@@ -11,6 +11,18 @@ An AI-powered chatbot for Zoho Projects. Users manage projects and tasks through
 - **Session Memory** — Short-term context across turns plus long-term SQLite storage
 - **Mock Mode** — Full agent simulation without Zoho or OpenAI credentials (`TEST_MODE=1`)
 
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| **LangGraph** | Multi-agent orchestration with stateful GraphState and tool routing |
+| **FastAPI** | Async Python web framework with JWT authentication |
+| **OAuth 2.0** | Secure Zoho authentication (Authorization Code Grant) |
+| **Groq LLM** | `llama-3.1-8b-instant` for intent routing and action extraction |
+| **React 18** | Frontend UI with Vite dev server |
+| **SQLite/aiosqlite** | Async database for token and memory persistence |
+| **Pydantic** | Type-safe request/response validation |
+
 ## Architecture Overview
 
 ```
@@ -22,12 +34,12 @@ User (React Frontend)
         v
 +---------------------------+
 |  FastAPI (main.py)        |
-|  In-memory session state  |
+|  LangGraph Session State  |
 +---------------------------+
         |
         +-- awaiting_confirmation? --> Confirm Handler --> execute/cancel tool
         |
-        +-- else --> Router (ChatOpenAI)
+        +-- else --> Router (Groq LLM)
                         |
             +-----------+-----------+
             |                       |
@@ -247,7 +259,7 @@ zoho-project-chatbot/
 │   │   ├── query_agent.py   # Read operations
 │   │   ├── action_agent.py  # Write operations (confirmation)
 │   │   └── confirm_handler.py
-│   ├── tools/zoho_tools.py  # 9 LangChain tools (+ mock mode)
+│   ├── tools/zoho_tools.py  # 9 LangGraph @tool decorated functions (+ mock mode)
 │   ├── llm/
 │   │   └── groq_llm.py      # ChatGroq helper
 │   ├── memory/memory_store.py
@@ -266,8 +278,7 @@ zoho-project-chatbot/
 4. **No rate limiting** — Add SlowAPI or similar before production use.
 5. **Confirmation timeout** — Pending actions expire only when the session is cleared.
 6. **Groq dependency** — Router and action agent require a valid `GROQ_API_KEY`; use `TEST_MODE=1` with mock simulation for offline testing.
-7. **LangGraph listed but not used** — Agent orchestration is manual in `main.py`, not a LangGraph StateGraph.
-8. **Single-region Zoho** — Defaults to Zoho India (`accounts.zoho.in`); change `ZOHO_ACCOUNTS_URL` for other regions.
+7. **Single-region Zoho** — Defaults to Zoho India (`accounts.zoho.in`); change `ZOHO_ACCOUNTS_URL` for other regions.
 
 ## License
 
